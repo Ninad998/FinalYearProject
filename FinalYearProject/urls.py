@@ -1,4 +1,3 @@
-# coding=utf-8
 """FinalYearProject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,13 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.contrib.auth import views
-
-admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/$', views.login, name='login'),
-    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
-    url(r'', include('django_app.urls')),
+    url(r'django_app/', include('django_app.urls')),
+    url(r'deep_stylo/', include('deep_stylo.urls')),
 ]

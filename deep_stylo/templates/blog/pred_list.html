@@ -1,0 +1,55 @@
+<html>
+<div>
+    <h1><a href="/">Stylometric Query Processing using Deep Learning</a></h1>
+</div>
+
+<div>
+    <h2>User Name: {{ results.first.user }}</h2>
+</div>
+
+<table>
+    <tr>
+        <th>Doc ID</th>
+        <th>Author List</th>
+        <th>Test Accuracy</th>
+        <th>Test Result</th>
+        <th>Status</th>
+        <th>Upload Date</th>
+    </tr>
+    {% for result in results %}
+        <tr>
+            <td>
+                {{ result.doc_id }}
+            </td>
+            <td>
+                {{ result.authorList }}
+            </td>
+            <td>
+                {% if result.test_acc is None %}
+                    NA
+                {% else %}
+                    {{ result.test_acc }}
+                {% endif %}
+            </td>
+            <td>
+                {% if result.test_bin is None %}
+                    NA
+                {% else %}
+                    {{ result.test_bin }}
+                {% endif %}
+            </td>
+            <td>
+                {% if result.completed >= 1.0 %}
+                    Completed
+                {% else %}
+                    To be run
+                {% endif %}
+            </td>
+            <td>
+                {{ result.upload_date }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+</html>
