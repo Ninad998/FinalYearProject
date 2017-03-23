@@ -2,64 +2,71 @@
 
 {% block content %}
 
-    <table class="table">
+    {% if user.is_authenticated %}
 
-        <thead class="thead-inverse">
-        <tr>
-            <th>Doc ID</th>
-            <th>Author List</th>
-            <th>Test Accuracy</th>
-            <th>Test Result</th>
-            <th>Status</th>
-            <th>Upload Date</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+        <p class="disclaimer">
+            * Running Queries will not be deleted
+        </p>
 
-        <tbody>
+        <table class="table">
 
-        {% for result in results %}
+            <thead class="thead-inverse">
             <tr>
-                <td>
-                    {{ result.doc_id }}
-                </td>
-                <td>
-                    {{ result.authorList }}
-                </td>
-                <td>
-                    {% if result.test_acc is None %}
-                        NA
-                    {% else %}
-                        {{ result.test_acc }}
-                    {% endif %}
-                </td>
-                <td>
-                    {% if result.test_bin is None %}
-                        NA
-                    {% else %}
-                        {{ result.test_bin }}
-                    {% endif %}
-                </td>
-                <td>
-                    {% if result.completed >= 1.0 %}
-                        Completed
-                    {% else %}
-                        To be run
-                    {% endif %}
-                </td>
-                <td>
-                    {{ result.upload_date }}
-                </td>
-                <td>
-                    <a href="/deep_stylo/delete/">
-                        Delete
-                    </a>
-                </td>
+                <th>Doc ID</th>
+                <th>Author List</th>
+                <th>Test Accuracy</th>
+                <th>Test Result</th>
+                <th>Status</th>
+                <th>Upload Date</th>
+                <th>Action</th>
             </tr>
-        {% endfor %}
+            </thead>
 
-        </tbody>
+            <tbody>
 
-    </table>
+            {% for result in results %}
+                <tr>
+                    <td>
+                        {{ result.doc_id }}
+                    </td>
+                    <td>
+                        {{ result.authorList }}
+                    </td>
+                    <td>
+                        {% if result.test_acc is None %}
+                            NA
+                        {% else %}
+                            {{ result.test_acc }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if result.test_bin is None %}
+                            NA
+                        {% else %}
+                            {{ result.test_bin }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if result.completed >= 1.0 %}
+                            Completed
+                        {% else %}
+                            To be run
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ result.upload_date }}
+                    </td>
+                    <td>
+                        <a href="{% url 'query_remove' pk=result.pk %}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
 
+            </tbody>
+
+        </table>
+
+    {% endif %}
 {% endblock %}

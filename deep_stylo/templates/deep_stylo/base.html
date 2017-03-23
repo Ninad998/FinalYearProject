@@ -3,8 +3,11 @@
 <html lang="en">
 <head>
     <title>Stylometric Query Processing using Deep Learning</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/deep_stylo.css' %}">
 </head>
@@ -13,32 +16,50 @@
 
 <div class="page-header">
     <div>
-        <h1 class="site-name"><a href="/deep_stylo/">Stylometric Query Processing using Deep Learning</a></h1>
+        <h1 class="site-name"><a href="/">Stylometric Query Processing using Deep Learning</a></h1>
     </div>
 
-    <div class="user-tools">
+    {% if user.is_authenticated %}
 
-        Welcome, <strong>admin</strong>.
+        <div class="user-tools">
 
-        <br/>
+            Welcome,
+            <strong>
+                {% if user.first_name != "" and user.first_name != " " and user.first_name is not null %}
+                    {{ user.first_name }}
 
-        <a href="{% url 'query_new' %}">
-            Add Query
-        </a>
+                {% else %}
+                    {{ user.username }}
+                {% endif %}
+            </strong>.
 
-        /
+            <br/>
 
-        <a href="/deep_stylo/password_change/">
-            Change Password
-        </a>
 
-        /
+            <a href="{% url 'query_new' %}">
+                Add Query
+            </a>
 
-        <a href="/deep_stylo/logout/">
-            Log Out
-        </a>
+            /
 
-    </div>
+            <a href="/deep_stylo/password_change/">
+                Change Password
+            </a>
+
+            /
+
+            <a href="{% url 'logout' %}">
+                Log Out
+            </a>
+
+        </div>
+    {% else %}
+        <div class="user-tools">
+
+            <a href="{% url 'login' %}" class="user-tools">Login</a>
+
+        </div>
+    {% endif %}
 </div>
 
 <div class="content">

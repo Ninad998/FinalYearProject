@@ -16,7 +16,7 @@ class Result(models.Model):
     def complete(self, test_acc, test_bin):
         self.test_acc = test_acc
         self.test_bin = test_bin
-        self.completed = 1.0
+        self.completed = 2.0
         self.save()
 
     def __str__(self):
