@@ -14,62 +14,69 @@
 
 <body>
 
-<div class="page-header">
-    <div>
-        <h1 class="site-name"><a href="/">Stylometric Query Processing using Deep Learning</a></h1>
+<div class="base">
+
+    <div class="page-header">
+        <div>
+            <h1 class="site-name"><a href="/">Stylometric Query Processing using Deep Learning</a></h1>
+        </div>
+
+        {% if user.is_authenticated %}
+
+            <div class="user-tools">
+
+                Welcome,
+                <strong>
+                    {% if user.first_name != "" and user.first_name != " " and user.first_name is not null %}
+                        {{ user.first_name }}
+
+                    {% else %}
+                        {{ user.username }}
+                    {% endif %}
+                </strong>.
+
+                <br/>
+
+                <div class="user-function">
+
+                    <a href="{% url 'query_new' %}">
+                        Add Query
+                    </a>
+
+                    /
+
+                    <a href="/deep_stylo/password_change/">
+                        Change Password
+                    </a>
+
+                    /
+
+                    <a href="{% url 'logout' %}">
+                        Log Out
+                    </a>
+
+                </div>
+
+            </div>
+        {% else %}
+            <div class="user-tools">
+
+                <a href="{% url 'login' %}" class="user-tools">Login</a>
+
+            </div>
+        {% endif %}
     </div>
 
-    {% if user.is_authenticated %}
+    <div class="content">
 
-        <div class="user-tools">
+        <div class="row">
 
-            Welcome,
-            <strong>
-                {% if user.first_name != "" and user.first_name != " " and user.first_name is not null %}
-                    {{ user.first_name }}
+            <div class="col-md-8">
 
-                {% else %}
-                    {{ user.username }}
-                {% endif %}
-            </strong>.
+                {% block content %}
+                {% endblock %}
+            </div>
 
-            <br/>
-
-
-            <a href="{% url 'query_new' %}">
-                Add Query
-            </a>
-
-            /
-
-            <a href="/deep_stylo/password_change/">
-                Change Password
-            </a>
-
-            /
-
-            <a href="{% url 'logout' %}">
-                Log Out
-            </a>
-
-        </div>
-    {% else %}
-        <div class="user-tools">
-
-            <a href="{% url 'login' %}" class="user-tools">Login</a>
-
-        </div>
-    {% endif %}
-</div>
-
-<div class="content">
-
-    <div class="row">
-
-        <div class="col-md-8">
-
-            {% block content %}
-            {% endblock %}
         </div>
 
     </div>
