@@ -11,7 +11,7 @@ class Result(models.Model):
     test_acc = models.DecimalField(max_digits=11, decimal_places=10, null=True)
     test_bin = models.DecimalField(max_digits=2, decimal_places=1, null=True)
     upload_date = models.DateTimeField(default=timezone.now, null=False)
-    completed = models.DecimalField(max_digits=2, decimal_places=1, null=False, default=0.0)
+    status = models.DecimalField(max_digits=2, decimal_places=1, null=False, default=0.0)
 
     def complete(self, test_acc, test_bin):
         self.test_acc = test_acc

@@ -199,7 +199,7 @@ CREATE TABLE `deep_stylo_result` (
   `test_acc` decimal(11,10) DEFAULT NULL,
   `test_bin` decimal(2,1) DEFAULT NULL,
   `upload_date` datetime(6) NOT NULL,
-  `completed` decimal(2,1) NOT NULL,
+  `status` decimal(2,1) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `deep_stylo_result_user_id_f5f8d2bb_fk_auth_user_id` (`user_id`),
@@ -213,7 +213,7 @@ CREATE TABLE `deep_stylo_result` (
 
 LOCK TABLES `deep_stylo_result` WRITE;
 /*!40000 ALTER TABLE `deep_stylo_result` DISABLE KEYS */;
-INSERT INTO `deep_stylo_result` VALUES (1,0,'1, 2, 3,',1.9900000000,1.0,'2017-03-21 07:54:47.416000',1.0,1),(2,1,'2, 3,',NULL,NULL,'2017-03-21 07:55:03.732000',0.0,1),(3,2,'3, 4, 5',NULL,NULL,'2017-03-23 08:28:59.335000',0.0,1),(4,3,'4, 5',NULL,NULL,'2017-03-23 08:29:59.042000',0.0,1),(5,4,'5, 6, 7',NULL,NULL,'2017-03-23 08:30:41.936000',0.0,1),(6,4,'4',NULL,NULL,'2017-03-23 08:59:30.469000',0.0,1),(7,4,'5',NULL,NULL,'2017-03-23 09:00:30.343000',0.0,1),(8,4,'5, 6',NULL,NULL,'2017-03-23 09:08:02.987000',0.0,1),(11,5,'5, 6',NULL,NULL,'2017-03-23 09:33:57.911000',0.0,1),(12,4,'5, 6, 7, 7, 7',NULL,NULL,'2017-03-23 15:49:06.221000',0.0,1);
+INSERT INTO `deep_stylo_result` VALUES (1,0,'1, 2, 3,',1.9900000000,1.0,'2017-03-21 07:54:47.416000',2.0,1),(2,1,'2, 3,',NULL,NULL,'2017-03-21 07:55:03.732000',0.0,1),(3,2,'3, 4, 5',NULL,NULL,'2017-03-23 08:28:59.335000',0.0,1),(4,3,'4, 5',NULL,NULL,'2017-03-23 08:29:59.042000',0.0,1),(5,4,'5, 6, 7',NULL,NULL,'2017-03-23 08:30:41.936000',0.0,1),(6,4,'4',NULL,NULL,'2017-03-23 08:59:30.469000',0.0,1),(7,4,'5',NULL,NULL,'2017-03-23 09:00:30.343000',0.0,1),(8,4,'5, 6',NULL,NULL,'2017-03-23 09:08:02.987000',0.0,1),(11,5,'5, 6',NULL,NULL,'2017-03-23 09:33:57.911000',0.0,1),(12,4,'5, 6, 7, 7, 7',NULL,NULL,'2017-03-23 15:49:06.221000',0.0,1);
 /*!40000 ALTER TABLE `deep_stylo_result` ENABLE KEYS */;
 UNLOCK TABLES;
 
