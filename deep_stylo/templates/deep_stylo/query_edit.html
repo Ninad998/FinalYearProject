@@ -1,14 +1,18 @@
 {% extends 'deep_stylo/base.html' %}
 
 {% block content %}
+    <div class="col-md-8">
 
-    <h1>New Query</h1>
+        <div class="heading" style="font-size: 20pt;">
+            <p>New Query</p>
+        </div>
 
-    <br/>
 
-    <form method="POST" class="query-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+        <form method="POST" class="query-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-default">Save</button>
+        </form>
+
+    </div>
 {% endblock %}

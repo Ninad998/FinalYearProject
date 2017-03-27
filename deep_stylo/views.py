@@ -14,7 +14,6 @@ def pred_list(request):
 
 @login_required
 def query_new(request):
-    form = QueryForm()
     if request.method == "POST":
         form = QueryForm(request.POST.copy())
         if form.is_valid():

@@ -12,7 +12,7 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.utils.np_utils import to_categorical
 from keras.models import Sequential, Model
-from keras.layers import Embedding, Convolution1D, MaxPooling1D, LSTM, Flatten
+from keras.layers import Embedding, Convolution1D, MaxPooling1D, LSTM
 from keras.layers import Input, Merge, Dense
 from keras.layers import Dropout
 from keras.optimizers import SGD
