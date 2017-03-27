@@ -17,7 +17,7 @@ class Result(models.Model):
     status = models.DecimalField(max_digits=2, decimal_places=1, null=False, default=0.0)
 
     def running(self):
-        self.completed = 1.0
+        self.status = 1.0
         self.save()
 
     def complete(self, predicted_author, train_accuracy, validation_accuracy, test_accuracy, test_binary):
@@ -26,7 +26,7 @@ class Result(models.Model):
         self.validation_accuracy = validation_accuracy
         self.test_accuracy = test_accuracy
         self.test_binary = test_binary
-        self.completed = 2.0
+        self.status = 2.0
         self.save()
 
     def __str__(self):

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: localdb
+-- Host: localhost    Database: localdb
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,6 +33,7 @@ CREATE TABLE `auth_group` (
 --
 -- Dumping data for table `auth_group`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `auth_group` WRITE;
 /*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
@@ -61,6 +62,7 @@ CREATE TABLE `auth_group_permissions` (
 --
 -- Dumping data for table `auth_group_permissions`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `auth_group_permissions` WRITE;
 /*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
@@ -88,10 +90,11 @@ CREATE TABLE `auth_permission` (
 --
 -- Dumping data for table `auth_permission`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add permission',2,'add_permission'),(5,'Can change permission',2,'change_permission'),(6,'Can delete permission',2,'delete_permission'),(7,'Can add user',3,'add_user'),(8,'Can change user',3,'change_user'),(9,'Can delete user',3,'delete_user'),(10,'Can add group',4,'add_group'),(11,'Can change group',4,'change_group'),(12,'Can delete group',4,'delete_group'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add result',7,'add_result'),(20,'Can change result',7,'change_result'),(21,'Can delete result',7,'delete_result'),(22,'Can add post',8,'add_post'),(23,'Can change post',8,'change_post'),(24,'Can delete post',8,'delete_post');
+INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add permission',2,'add_permission'),(5,'Can change permission',2,'change_permission'),(6,'Can delete permission',2,'delete_permission'),(7,'Can add user',3,'add_user'),(8,'Can change user',3,'change_user'),(9,'Can delete user',3,'delete_user'),(10,'Can add group',4,'add_group'),(11,'Can change group',4,'change_group'),(12,'Can delete group',4,'delete_group'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add result',7,'add_result'),(20,'Can change result',7,'change_result'),(21,'Can delete result',7,'delete_result'),(22,'Can add post',8,'add_post'),(23,'Can change post',8,'change_post'),(24,'Can delete post',8,'delete_post');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,10 +125,11 @@ CREATE TABLE `auth_user` (
 --
 -- Dumping data for table `auth_user`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$30000$lX1FEplFFaiT$korurUv/+gEvixK2FagrGsJ7x84ZdrtkiJRDUj8EeNo=','2017-03-26 05:52:05.267000',1,'admin','Ninad','','admin@admin.com',1,1,'2017-03-21 07:54:09.705000');
+INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES (1,'pbkdf2_sha256$30000$lX1FEplFFaiT$korurUv/+gEvixK2FagrGsJ7x84ZdrtkiJRDUj8EeNo=','2017-03-26 05:52:05.267000',1,'admin','Ninad','','admin@admin.com',1,1,'2017-03-21 07:54:09.705000');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,6 +155,7 @@ CREATE TABLE `auth_user_groups` (
 --
 -- Dumping data for table `auth_user_groups`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `auth_user_groups` WRITE;
 /*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
@@ -179,6 +184,7 @@ CREATE TABLE `auth_user_user_permissions` (
 --
 -- Dumping data for table `auth_user_user_permissions`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `auth_user_user_permissions` WRITE;
 /*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
@@ -213,10 +219,11 @@ CREATE TABLE `deep_stylo_result` (
 --
 -- Dumping data for table `deep_stylo_result`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `deep_stylo_result` WRITE;
 /*!40000 ALTER TABLE `deep_stylo_result` DISABLE KEYS */;
-INSERT INTO `deep_stylo_result` VALUES (1,0,'1, 2, 3,','1',1.0000000000,0.9900000000,0.9900000000,1.0,'2017-03-21 07:54:47.416000',2.0,1),(2,1,'2, 3,',NULL,NULL,NULL,NULL,NULL,'2017-03-21 07:55:03.732000',1.0,1),(3,2,'3, 4, 5',NULL,NULL,NULL,NULL,NULL,'2017-03-23 08:28:59.335000',0.0,1),(4,3,'4, 5',NULL,NULL,NULL,NULL,NULL,'2017-03-23 08:29:59.042000',0.0,1),(5,4,'5, 6, 7',NULL,NULL,NULL,NULL,NULL,'2017-03-23 08:30:41.936000',0.0,1),(7,4,'5',NULL,NULL,NULL,NULL,NULL,'2017-03-23 09:00:30.343000',0.0,1),(8,4,'5, 6',NULL,NULL,NULL,NULL,NULL,'2017-03-23 09:08:02.987000',0.0,1),(11,5,'5, 6',NULL,NULL,NULL,NULL,NULL,'2017-03-23 09:33:57.911000',0.0,1),(12,4,'4, 5',NULL,NULL,NULL,NULL,NULL,'2017-03-26 05:49:37.355000',0.0,1);
+INSERT INTO `deep_stylo_result` (`id`, `doc_id`, `authorList`, `predicted_author`, `train_accuracy`, `validation_accuracy`, `test_accuracy`, `test_binary`, `upload_date`, `status`, `user_id`) VALUES (1,85,'64, 44, 82',NULL,NULL,NULL,NULL,NULL,'2017-03-21 07:54:47.416000',0.0,1),(2,496,'23, 88',NULL,NULL,NULL,NULL,NULL,'2017-03-21 07:55:03.732000',0.0,1),(3,1938,'82, 65, 3, 61',NULL,NULL,NULL,NULL,NULL,'2017-03-23 08:28:59.335000',0.0,1);
 /*!40000 ALTER TABLE `deep_stylo_result` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,6 +254,7 @@ CREATE TABLE `django_admin_log` (
 --
 -- Dumping data for table `django_admin_log`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
@@ -276,10 +284,11 @@ CREATE TABLE `django_app_post` (
 --
 -- Dumping data for table `django_app_post`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `django_app_post` WRITE;
 /*!40000 ALTER TABLE `django_app_post` DISABLE KEYS */;
-INSERT INTO `django_app_post` VALUES (1,'Sample title 1','Test 1 Edited','2017-03-21 07:54:30.980000','2017-03-23 08:17:37.720000',1),(2,'Sample title 2','Test 2','2017-03-21 07:54:35.208000',NULL,1),(3,'Sample title 3','Test 3','2017-03-21 07:54:40.344000','2017-03-21 07:55:29.134000',1),(4,'Sample title 4','Test 4','2017-03-23 08:20:30.542000','2017-03-23 08:20:30.555000',1),(5,'Sample title 4','Test 4','2017-03-23 09:45:34.314000','2017-03-23 09:46:40.774000',1),(6,'Sample title 5','Test 5','2017-03-23 09:46:31.126000',NULL,1);
+INSERT INTO `django_app_post` (`id`, `title`, `text`, `created_date`, `published_date`, `author_id`) VALUES (1,'Sample title 1','Test 1 Edited','2017-03-21 07:54:30.980000','2017-03-23 08:17:37.720000',1),(2,'Sample title 2','Test 2','2017-03-21 07:54:35.208000',NULL,1),(3,'Sample title 3','Test 3','2017-03-21 07:54:40.344000','2017-03-21 07:55:29.134000',1),(4,'Sample title 4','Test 4','2017-03-23 08:20:30.542000','2017-03-23 08:20:30.555000',1),(5,'Sample title 4','Test 4','2017-03-23 09:45:34.314000','2017-03-23 09:46:40.774000',1),(6,'Sample title 5','Test 5','2017-03-23 09:46:31.126000',NULL,1);
 /*!40000 ALTER TABLE `django_app_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,10 +311,11 @@ CREATE TABLE `django_content_type` (
 --
 -- Dumping data for table `django_content_type`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(4,'auth','group'),(2,'auth','permission'),(3,'auth','user'),(5,'contenttypes','contenttype'),(7,'deep_stylo','result'),(8,'django_app','post'),(6,'sessions','session');
+INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES (1,'admin','logentry'),(2,'auth','permission'),(3,'auth','user'),(4,'auth','group'),(5,'contenttypes','contenttype'),(6,'sessions','session'),(7,'deep_stylo','result'),(8,'django_app','post');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,10 +338,11 @@ CREATE TABLE `django_migrations` (
 --
 -- Dumping data for table `django_migrations`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2017-03-21 07:53:53.575000'),(2,'auth','0001_initial','2017-03-21 07:53:55.029000'),(3,'admin','0001_initial','2017-03-21 07:53:55.327000'),(4,'admin','0002_logentry_remove_auto_add','2017-03-21 07:53:55.346000'),(5,'contenttypes','0002_remove_content_type_name','2017-03-21 07:53:55.551000'),(6,'auth','0002_alter_permission_name_max_length','2017-03-21 07:53:55.685000'),(7,'auth','0003_alter_user_email_max_length','2017-03-21 07:53:55.806000'),(8,'auth','0004_alter_user_username_opts','2017-03-21 07:53:55.827000'),(9,'auth','0005_alter_user_last_login_null','2017-03-21 07:53:55.995000'),(10,'auth','0006_require_contenttypes_0002','2017-03-21 07:53:56.004000'),(11,'auth','0007_alter_validators_add_error_messages','2017-03-21 07:53:56.025000'),(12,'auth','0008_alter_user_username_max_length','2017-03-21 07:53:56.157000'),(13,'deep_stylo','0001_initial','2017-03-21 07:53:56.342000'),(14,'django_app','0001_initial','2017-03-21 07:53:56.538000'),(15,'sessions','0001_initial','2017-03-21 07:53:56.640000');
+INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES (1,'contenttypes','0001_initial','2017-03-21 07:53:53.575000'),(2,'auth','0001_initial','2017-03-21 07:53:55.029000'),(3,'admin','0001_initial','2017-03-21 07:53:55.327000'),(4,'admin','0002_logentry_remove_auto_add','2017-03-21 07:53:55.346000'),(5,'contenttypes','0002_remove_content_type_name','2017-03-21 07:53:55.551000'),(6,'auth','0002_alter_permission_name_max_length','2017-03-21 07:53:55.685000'),(7,'auth','0003_alter_user_email_max_length','2017-03-21 07:53:55.806000'),(8,'auth','0004_alter_user_username_opts','2017-03-21 07:53:55.827000'),(9,'auth','0005_alter_user_last_login_null','2017-03-21 07:53:55.995000'),(10,'auth','0006_require_contenttypes_0002','2017-03-21 07:53:56.004000'),(11,'auth','0007_alter_validators_add_error_messages','2017-03-21 07:53:56.025000'),(12,'auth','0008_alter_user_username_max_length','2017-03-21 07:53:56.157000'),(13,'deep_stylo','0001_initial','2017-03-21 07:53:56.342000'),(14,'django_app','0001_initial','2017-03-21 07:53:56.538000'),(15,'sessions','0001_initial','2017-03-21 07:53:56.640000');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,10 +365,11 @@ CREATE TABLE `django_session` (
 --
 -- Dumping data for table `django_session`
 --
+-- ORDER BY:  `session_key`
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('57vzqfnz8pht5gfg34vyan0ysg871mua','ZWMxN2ZlMDIwNDBkNDU3MTJhM2ZmZjZiMjg2NjM1NWY0N2FhY2FmMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxMGJhMDA0MjViNDQ5N2QzNDU2NmRiYmZiZjk5MWJiMDU1NzA1YmYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-04-05 10:25:38.613000'),('7mh4sga22z3gzfzoxjcnk3zs8lpvsuf8','ZWMxN2ZlMDIwNDBkNDU3MTJhM2ZmZjZiMjg2NjM1NWY0N2FhY2FmMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxMGJhMDA0MjViNDQ5N2QzNDU2NmRiYmZiZjk5MWJiMDU1NzA1YmYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-04-07 16:30:58.244000'),('mxhtrs1sfedhzl4oconmkt1el5gmi8o3','ZWMxN2ZlMDIwNDBkNDU3MTJhM2ZmZjZiMjg2NjM1NWY0N2FhY2FmMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxMGJhMDA0MjViNDQ5N2QzNDU2NmRiYmZiZjk5MWJiMDU1NzA1YmYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-04-06 15:48:45.440000');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('57vzqfnz8pht5gfg34vyan0ysg871mua','ZWMxN2ZlMDIwNDBkNDU3MTJhM2ZmZjZiMjg2NjM1NWY0N2FhY2FmMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxMGJhMDA0MjViNDQ5N2QzNDU2NmRiYmZiZjk5MWJiMDU1NzA1YmYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-04-05 10:25:38.613000'),('7mh4sga22z3gzfzoxjcnk3zs8lpvsuf8','ZWMxN2ZlMDIwNDBkNDU3MTJhM2ZmZjZiMjg2NjM1NWY0N2FhY2FmMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxMGJhMDA0MjViNDQ5N2QzNDU2NmRiYmZiZjk5MWJiMDU1NzA1YmYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-04-07 16:30:58.244000'),('mxhtrs1sfedhzl4oconmkt1el5gmi8o3','ZWMxN2ZlMDIwNDBkNDU3MTJhM2ZmZjZiMjg2NjM1NWY0N2FhY2FmMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxMGJhMDA0MjViNDQ5N2QzNDU2NmRiYmZiZjk5MWJiMDU1NzA1YmYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-04-06 15:48:45.440000');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -370,4 +382,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-27 15:57:34
+-- Dump completed on 2017-03-27 17:30:05
