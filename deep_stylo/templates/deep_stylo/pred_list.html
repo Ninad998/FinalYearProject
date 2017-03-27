@@ -7,66 +7,105 @@
         <p class="disclaimer">
             * Running Queries will not be deleted
         </p>
+        <div class="table-responsive">
 
-        <table class="table">
+            <table class="table table-bordered table-hover">
 
-            <thead class="thead-inverse">
-            <tr>
-                <th>Doc ID</th>
-                <th>Author List</th>
-                <th>Test Accuracy</th>
-                <th>Test Result</th>
-                <th>Status</th>
-                <th>Upload Date</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-
-            <tbody>
-
-            {% for result in results %}
+                <thead class="thead-inverse">
                 <tr>
-                    <td>
-                        {{ result.doc_id }}
-                    </td>
-                    <td>
-                        {{ result.authorList }}
-                    </td>
-                    <td>
-                        {% if result.test_acc is None %}
-                            NA
-                        {% else %}
-                            {{ result.test_acc }}
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if result.test_bin is None %}
-                            NA
-                        {% else %}
-                            {{ result.test_bin }}
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if result.completed >= 1.0 %}
-                            Completed
-                        {% else %}
-                            To be run
-                        {% endif %}
-                    </td>
-                    <td>
-                        {{ result.upload_date }}
-                    </td>
-                    <td>
-                        <a href="{% url 'query_remove' pk=result.pk %}">
-                            Delete
-                        </a>
-                    </td>
+                    <th>Doc ID</th>
+                    <th>Author List</th>
+                    <th>Predicted Author ID</th>
+                    <th>Train Accuracy</th>
+                    <th>Validation Result</th>
+                    <th>Test Accuracy</th>
+                    <th>Test Result</th>
+                    <th>Status</th>
+                    <th>Upload Date</th>
+                    <th>Action</th>
                 </tr>
-            {% endfor %}
+                </thead>
 
-            </tbody>
+                <tbody>
 
-        </table>
+                {% for result in results %}
+                    {% if result.status >= 2.0 %}
+                        <tr class="table-success">
+                    {% elif result.status >= 1.0 %}
+                        <tr class="table-warning">
+                    {% else %}
+                        <tr>
+                    {% endif %}
+                        <td>
+                            {{ result.doc_id }}
+                        </td>
+                        <td>
+                            {{ result.authorList }}
+                        </td>
+                        <td>
+                            {% if result.predicted_author is None %}
+                                NA
+                            {% else %}
+                                {{ result.predicted_author }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.train_accuracy is None %}
+                                NA
+                            {% else %}
+                                {{ result.train_accuracy }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.validation_accuracy is None %}
+                                NA
+                            {% else %}
+                                {{ result.validation_accuracy }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.test_accuracy is None %}
+                                NA
+                            {% else %}
+                                {{ result.test_accuracy }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.test_binary is None %}
+                                NA
+                            {% else %}
+                                {% if result.test_binary == 1.0 %}
+                                    Predicted Author is correct
+                                {% else %}
+                                    Predicted Author is incorrect
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.status >= 2.0 %}
+                                Completed
+                            {% elif result.status >= 1.0 %}
+                                Running
+                            {% else %}
+                                To be run
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ result.upload_date }}
+                        </td>
+                        <td>
+                            <a href="{% url 'query_remove' pk=result.pk %}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     {% endif %}
 {% endblock %}

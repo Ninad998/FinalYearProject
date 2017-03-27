@@ -1,5 +1,6 @@
 body {
     background: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
 }
 
 .login {
@@ -90,12 +91,17 @@ body {
     background: #fff;
     overflow: hidden;
     padding-top: 20px;
-    padding-right: 20px;
+    padding-right: 40px;
     padding-left: 40px;
     padding-bottom: 20px;
     text-decoration: none;
+    max-width: 100%;
 }
 
 .query-form textarea, .query-form input {
+    width: 100%;
+}
+
+.table, .content .table, .content .table {
     width: 100%;
 }

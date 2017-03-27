@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def pred_list(request):
     results = Result.objects.all().order_by('upload_date')
+    # results = Result.objects.filter(status__lt = 1).order_by('upload_date')
     return render(request, 'deep_stylo/pred_list.html', {'results': results})
 
 @login_required
@@ -28,6 +29,6 @@ def query_new(request):
 @login_required
 def query_remove(request, pk):
     query = get_object_or_404(Result, pk=pk)
-    if query.completed != 1.0:
+    if query.status != 1.0:
         query.delete()
     return redirect('pred_list')
