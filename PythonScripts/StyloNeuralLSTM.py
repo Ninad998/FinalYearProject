@@ -34,7 +34,7 @@ def getResults(authorList = None, doc_id = None, chunk_size = 1000, nb_epoch = 3
         return (labels_index, history, train_acc, val_acc, samples)
 
 
-def getTestResults(authorList = None, doc_id = None, labels_index = None,chunk_size = 1000, nb_epoch = 30, level = 'word',
+def getTestResults(authorList = None, doc_id = None, labels_index = None, chunk_size = 1000, nb_epoch = 30, level = 'word',
                    glove = '../glove/', samples = 3200, dimensions = 200, dropout = 0.5, batch_size = 100):
 
     if (authorList is None) or (labels_index is None) or (doc_id is None) or (doc_id == 0):

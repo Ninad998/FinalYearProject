@@ -20,7 +20,7 @@ def markCompleted(result, predicted_author, train_accuracy, validation_accuracy,
     result.complete(predicted_author, train_accuracy, validation_accuracy, test_accuracy, test_binary)
 
     
-while True:
+while (True):
     results = getDataFromDB()
     
     if results.exists():
@@ -35,10 +35,10 @@ while True:
         
         import PythonScripts.StyloNeuralLSTM as Stylo
         (labels_index, history, train_accuracy, validation_accuracy, samples) = Stylo.getResults(
-                doc_id = doc_id, authorList = authorList[:] )
+            doc_id = doc_id, authorList = authorList[:] )
         
         (predYList, predY, testY) = Stylo.getTestResults(
-            doc_id = doc_id, authorList = authorList[:] )
+            doc_id = doc_id, authorList = authorList[:], labels_index = labels_index)
         
         loc = testY
         
@@ -46,7 +46,7 @@ while True:
         
         test_binary = 0.0
         
-        if predY.tolist().index(max(predY)) == testY:
+        if(predY.tolist().index(max(predY)) == testY):
             test_binary = 1.0
             
         del Stylo

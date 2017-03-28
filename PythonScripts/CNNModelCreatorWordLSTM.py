@@ -291,7 +291,12 @@ def recompileModel(classes, embedding_matrix, EMBEDDING_DIM = 200, chunk_size = 
 
     sgd = SGD(lr=LEARNING_RATE, momentum=MOMENTUM, nesterov=True)
     
-    filepath="author-cnn-ngrams-lstm-word.hdf5"
+    import os 
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    
+    filename = "author-cnn-ngrams-lstm-word.hdf5"
+    
+    filepath = dir_path + "/" + filename
 
     model.load_weights(filepath)
 
@@ -302,7 +307,13 @@ def recompileModel(classes, embedding_matrix, EMBEDDING_DIM = 200, chunk_size = 
     return model
 
 def fitModel(model, trainX, trainY, valX, valY, nb_epoch=30, batch_size=10):
-    filepath="author-cnn-ngrams-lstm-word.hdf5"
+    
+    import os 
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    
+    filename = "author-cnn-ngrams-lstm-word.hdf5"
+    
+    filepath = dir_path + "/" + filename
     
     checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 
