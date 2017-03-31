@@ -24,10 +24,10 @@ class Result(models.Model):
     def complete(self, predicted_author, train_accuracy, validation_accuracy, test_accuracy, test_binary):
         from decimal import Decimal
         self.predicted_author = predicted_author
-        self.train_accuracy = Decimal(train_accuracy)
-        self.validation_accuracy = Decimal(validation_accuracy)
-        self.test_accuracy = Decimal(test_accuracy)
-        self.test_binary = Decimal(test_binary)
+        self.train_accuracy = Decimal(str("%1.10f" % (train_accuracy)))
+        self.validation_accuracy = Decimal(str("%1.10f" % (validation_accuracy)))
+        self.test_accuracy = Decimal(str("%1.10f" % (test_accuracy)))
+        self.test_binary = Decimal(str("%1.1f" % (test_binary)))
         self.status = 2.0
         self.save()
 

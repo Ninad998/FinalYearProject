@@ -38,7 +38,7 @@ while (True):
             doc_id = doc_id, authorList = authorList[:] )
         
         (predYList, predY, testY) = Stylo.getTestResults(
-            doc_id = doc_id, authorList = authorList[:], labels_index = labels_index)
+            doc_id = doc_id, authorList = authorList[:], labels_index = labels_index )
         
         loc = testY
         
