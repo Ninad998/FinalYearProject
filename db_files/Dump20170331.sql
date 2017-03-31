@@ -129,7 +129,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES (1,'pbkdf2_sha256$30000$lX1FEplFFaiT$korurUv/+gEvixK2FagrGsJ7x84ZdrtkiJRDUj8EeNo=','2017-03-26 05:52:05.267000',1,'admin','Ninad','','admin@admin.com',1,1,'2017-03-21 07:54:09.705000');
+INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES (1,'pbkdf2_sha256$30000$lX1FEplFFaiT$korurUv/+gEvixK2FagrGsJ7x84ZdrtkiJRDUj8EeNo=','2017-03-31 03:31:56.982171',1,'admin','Ninad','','admin@admin.com',1,1,'2017-03-21 07:54:09.705000');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +213,7 @@ CREATE TABLE `deep_stylo_result` (
   PRIMARY KEY (`id`),
   KEY `deep_stylo_result_user_id_f5f8d2bb_fk_auth_user_id` (`user_id`),
   CONSTRAINT `deep_stylo_result_user_id_f5f8d2bb_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +223,7 @@ CREATE TABLE `deep_stylo_result` (
 
 LOCK TABLES `deep_stylo_result` WRITE;
 /*!40000 ALTER TABLE `deep_stylo_result` DISABLE KEYS */;
-INSERT INTO `deep_stylo_result` (`id`, `doc_id`, `authorList`, `predicted_author`, `train_accuracy`, `validation_accuracy`, `test_accuracy`, `test_binary`, `upload_date`, `status`, `user_id`) VALUES (1,85,'64, 44, 82',NULL,NULL,NULL,NULL,NULL,'2017-03-21 07:54:47.416000',0.0,1),(2,496,'23, 88',NULL,NULL,NULL,NULL,NULL,'2017-03-21 07:55:03.732000',0.0,1),(3,1938,'82, 65, 3, 61',NULL,NULL,NULL,NULL,NULL,'2017-03-23 08:28:59.335000',0.0,1);
+INSERT INTO `deep_stylo_result` (`id`, `doc_id`, `authorList`, `predicted_author`, `train_accuracy`, `validation_accuracy`, `test_accuracy`, `test_binary`, `upload_date`, `status`, `user_id`) VALUES (1,85,'64, 44, 82','44',0.9976677896,0.9678756477,0.0034444719,0.0,'2017-03-21 07:54:47.416000',2.0,1),(2,496,'23, 88','23',0.9771484375,0.9554687500,0.9890934825,1.0,'2017-03-21 07:55:03.732000',2.0,1),(3,1938,'82, 65, 3, 61','3',0.7636540329,0.7358197359,0.3303259909,0.0,'2017-03-23 08:28:59.335000',2.0,1),(4,168,'27, 80, 81','27',0.8788343558,0.8486707569,0.9918981791,1.0,'2017-03-30 05:45:48.640806',2.0,1),(5,297,'37, 71','37',0.8900956816,0.8893485005,0.5775080323,1.0,'2017-03-30 05:46:15.592278',2.0,1),(6,1476,'27, 80','27',0.9967130215,0.9878665313,0.9992097020,1.0,'2017-03-30 05:47:04.313701',2.0,1),(7,2175,'23, 61, 29, 71','23',0.8432893716,0.8066184074,0.6864163876,1.0,'2017-03-30 05:47:39.379517',2.0,1),(8,2318,'31, 69','31',0.9490937138,0.9368258860,0.7167492509,1.0,'2017-03-30 05:48:09.160756',2.0,1);
 /*!40000 ALTER TABLE `deep_stylo_result` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,4 +382,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-27 17:30:05
+-- Dump completed on 2017-03-31 14:02:54
